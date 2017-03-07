@@ -4,5 +4,5 @@ jah
 olen
 andres
 
-siin on uuendus branch2
+
 aga siin on hoopis masteri uuendus
