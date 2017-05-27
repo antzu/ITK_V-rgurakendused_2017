@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Blogapp</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="container">
+		<div id="menubar">
+			<ul id="menu">
+				<li><a href="?">Home</a></li>
+				<?php if(isset($_SESSION['username'])): ?>
+					<li><a href="?page=posts">Posts</a></li>
+					<li><a href="?page=newpost">New post</a></li>
+					<li><a href="?page=logout">Logout</a></li>
+				<?php else: ?>
+					<li><a href="?page=login">Log in</a></li>
+				<?php endif; ?>
+			</ul>
+		</div>
+	</div>
+	<div id="container">
+		<div id="content">
+	
