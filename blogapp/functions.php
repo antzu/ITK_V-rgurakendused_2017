@@ -20,16 +20,21 @@
 
 	function deletepost(){
 		global $connection;
-		if (!empty($_SESSION['username'])) {
-			$user_id = $_SESSION["id"];
+		if (!empty($_SESSION['username'])&&isset($_GET["postid"])) {
+
+			$id = $_GET["postid"];
 
 
-	    	$sql = "DELETE FROM `10162844-posts` WHERE user_id='$user_id' AND post='$mingi muutuja'";
+	    	$sql = "DELETE FROM `10162844-posts` WHERE id='$id'";
 	            
 	        $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
 	            
 	        $row = mysqli_num_rows($result);
 			echo "deleted";
+			echo "<br>";
+			echo '<a href="?page=posts">Back to posts</a>';
+		} else {
+			echo "not deleted";
 			echo "<br>";
 			echo '<a href="?page=posts">Back to posts</a>';
 		}
