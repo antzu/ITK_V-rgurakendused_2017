@@ -34,6 +34,9 @@
 		case 'signup';
 			signup();
 			break;
+		case 'deletepost';
+			deletepost();
+			break;
 
 		default:
 			home();

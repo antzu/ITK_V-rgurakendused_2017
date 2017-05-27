@@ -18,8 +18,8 @@
 
             echo "<h3>".$r["title"]."</h3>";
             echo "<p>".$r["post"]."</p>";
+            echo '<a href="?page=deletepost">Delete this post</a>';
             echo "<br>";
-
 
            }
     	} else {
