@@ -10,12 +10,14 @@
                $password = mysqli_real_escape_string ($connection, $_POST["password"]);
                $sql = "SELECT `id` FROM `10162844-users` WHERE username='$username' AND password='$password' ";
                $result = mysqli_query($connection, $sql);
-               $rida = mysqli_num_rows($result);
+               $row = mysqli_num_rows($result);
+               $id = mysqli_fetch_assoc($result);
 
-               if ($rida) {
+               if ($row) {
                   $_SESSION['valid'] = true;
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = $_POST["username"];
+                  $_SESSION['id'] = $id["id"];
                   
                   echo 'You have entered valid use name and password';
                   header('Refresh: 2; URL = ?page=login');

@@ -2,6 +2,7 @@
 	require_once('login.php');
 	require_once('logout.php');
 	require_once('home.php');
+	require_once('posts.php');
 
 	function connect_db(){
 	global $connection;

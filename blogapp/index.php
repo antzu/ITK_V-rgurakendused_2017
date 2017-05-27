@@ -24,6 +24,10 @@
 			home();
 			break;
 
+		case 'posts':
+			posts();
+			break;
+
 		default:
 			home();
 			break;
