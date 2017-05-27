@@ -8,6 +8,7 @@
 
                $username = mysqli_real_escape_string ($connection, $_POST["username"]);
                $password = mysqli_real_escape_string ($connection, $_POST["password"]);
+               $password = md5(md5('salt').$password);
                $sql = "SELECT `id` FROM `10162844-users` WHERE username='$username' AND password='$password' ";
                $result = mysqli_query($connection, $sql);
                $row = mysqli_num_rows($result);
@@ -19,8 +20,8 @@
                   $_SESSION['username'] = $_POST["username"];
                   $_SESSION['id'] = $id["id"];
                   
-                  echo 'You have entered valid use name and password';
-                  header('Refresh: 2; URL = ?page=login');
+                  $msg ='You have entered valid use name and password';
+                  header('Refresh: 1; URL = ?page=login');
                }else {
                   $msg = 'Wrong username or password';
                }

@@ -28,6 +28,13 @@
 			posts();
 			break;
 
+		case 'newpost';
+			newpost();
+			break;
+		case 'signup';
+			signup();
+			break;
+
 		default:
 			home();
 			break;

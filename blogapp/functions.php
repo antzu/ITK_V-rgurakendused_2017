@@ -3,6 +3,8 @@
 	require_once('logout.php');
 	require_once('home.php');
 	require_once('posts.php');
+	require_once('newpost.php');
+	require_once('signup.php');
 
 	function connect_db(){
 	global $connection;

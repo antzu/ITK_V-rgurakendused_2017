@@ -3,8 +3,9 @@
 	function logout() {
 	   unset($_SESSION["username"]);
 	   unset($_SESSION["password"]);
+	   session_destroy();
 	   
 	   echo 'Logging out...';
-	   header('Refresh: 2; URL = ?');
+	   header('Refresh: 1; URL = ?');
 	}
 ?>

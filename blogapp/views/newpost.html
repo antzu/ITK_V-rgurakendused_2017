@@ -1,1 +1,9 @@
-<p>Uus postitus</p>
+<h1>Uus postitus</h1>
+<form role = "form" action = "?page=newpost" method = "post" name="newpostform">
+    <h4><?php echo $msg; ?></h4>
+    <input type = "text" class = "form-control" name = "title" placeholder = "your post title" required>
+    <br>
+    <textarea name = "post" placeholder = "your post here" cols="80" rows="20" required></textarea>
+    <br>
+    <button type = "submit" name = "newpost">Post it!</button>
+ </form>
