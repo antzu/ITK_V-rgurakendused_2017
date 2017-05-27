@@ -1,13 +1,18 @@
-<div>
+<div class="panel-heading">
       <h2>Enter Username and Password</h2>
+</div>
+<div class="panel-content">
          <form role = "form" action = "?page=login" method = "post">
-            <h4><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control" 
-               name = "username" placeholder = "username = tutorialspoint" 
-               required autofocus></br>
+            <span class="label label-warning"><?php echo $msg; ?></span>
+            <div class="input-group">
+               <input type = "text" class = "form-control" 
+                  name = "username" placeholder = "username = tutorialspoint" 
+                  required autofocus>
+
             <input type = "password" class = "form-control"
                name = "password" placeholder = "password = 1234" required>
-            <button type = "submit" name = "login">Login</button>
+            </div>
+            <button type = "submit" name = "login" class="btn btn-primary">Login</button>
             <a href="?page=signup">Click here to sign up</a>
          </form>
 			 

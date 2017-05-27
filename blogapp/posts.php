@@ -16,15 +16,19 @@
             $row = mysqli_num_rows($result);
             while ($r = mysqli_fetch_assoc($result)){
             
-            echo "<div>";
+            echo "<div class='panel panel-content'>";
             echo "<h3>".$r["title"]."</h3>";
             echo "<p>".$r["post"]."</p>";
+            echo "<span class='label label-danger'>";
             echo '<a href="?page=deletepost&postid='.$r["id"].'">Delete this post</a>';
             echo "<br>";
-            echo "</div>";
+            echo "</span></div>";
+
 
            }
+           
     	} else {
+            
             header("Location: ?page=home");
         }
     }

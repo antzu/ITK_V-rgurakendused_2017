@@ -27,16 +27,24 @@
 
 	    	$sql = "DELETE FROM `10162844-posts` WHERE id='$id'";
 	            
-	        $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
+	        $result = mysqli_query($connection, $sql);
 	            
 	        $row = mysqli_num_rows($result);
-			echo "deleted";
-			echo "<br>";
-			echo '<a href="?page=posts">Back to posts</a>';
+			$msg =
+			"<div>"
+			."deleted"
+			."<br>"
+			.'<a href="?page=posts">Back to posts</a>'
+			."</div>";
+			echo "$msg";
 		} else {
-			echo "not deleted";
-			echo "<br>";
-			echo '<a href="?page=posts">Back to posts</a>';
+			$msg =
+			"<div>"
+			."not deleted"
+			."<br>"
+			.'<a href="?page=posts">Back to posts</a>'
+			."</div>";
+			echo "$msg";
 		}
 	}
 ?>

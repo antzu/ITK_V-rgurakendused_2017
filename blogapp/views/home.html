@@ -1,7 +1,12 @@
-<h1>Tere 
-<?php 
-	if (!empty($_SESSION['username'])){
-	echo $_SESSION['username'].", "; 
-	}
-?>
-see on pealeht </h1>
+<div class="panel-heading">
+	<h2>Tere tulemast
+	<?php 
+		if (!empty($_SESSION['username'])){
+		echo $_SESSION['username'].", "; 
+		}
+	?>
+	</h2>
+</div>
+<div class="panel-content">
+	<p>Siin kirjeldan meie appi</p>
+</div>

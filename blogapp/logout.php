@@ -5,7 +5,7 @@
 	   unset($_SESSION["password"]);
 	   session_destroy();
 	   
-	   echo 'Logging out...';
+	   echo '<span class="label label-warning">Logging out...</span>';
 	   header('Refresh: 1; URL = ?');
 	}
 ?>
