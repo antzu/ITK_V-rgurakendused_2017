@@ -1,3 +1,25 @@
-<div class="panel-heading">
+<div class="panel panel-heading">
 	<h2>Postitused</h2>
 </div>
+
+	<?php
+		foreach ($titles as $n => $title) {
+			
+			echo "<div class='panel panel-heading'>";
+			echo "<h4>".htmlspecialchars($title)."</h4>";
+			echo "</div>";
+
+			echo "<div class='panel panel-content'>";
+			echo "<div style='word-break: break-all';>".htmlspecialchars($posts[$n])."</div>";
+			echo "</div>";
+
+			echo "<div class='panel panel-footer'>";
+			echo "<div>Posted by: ".$_SESSION['username']."<br>".$dates[$n]."</div>";
+			echo "<span class='label label-warning'>";
+			echo "<a href='?page=deletepost&postid=".$ids[$n]."'>Delete this post</a>";
+            echo "</span>";
+            echo "</div>";           
+            
+		}
+	?>
+

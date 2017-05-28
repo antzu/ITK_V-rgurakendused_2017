@@ -4,32 +4,33 @@
             
         
     		global $connection;
-    		include('views/posts.html');
+    		
     		
     		$user_id = $_SESSION["id"];
 
 
-    		$sql = "SELECT `id`, `post`, `title` FROM `10162844-posts` WHERE user_id='$user_id' ";
+    		$sql = "SELECT `id`, `post`, `title`, `date` FROM `10162844-posts` WHERE user_id='$user_id' ";
             
             $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
             
             $row = mysqli_num_rows($result);
+            $titles = array();
+            $posts = array();
+            $ids = array();
+            $dates = array();
+
             while ($r = mysqli_fetch_assoc($result)){
             
-            echo "<div class='panel panel-content'>";
-            echo "<h3>".htmlspecialchars($r["title"])."</h3>";
-            echo "<p>".htmlspecialchars($r["post"])."</p>";
-            echo "<span class='label label-warning'>";
-            echo '<a href="?page=deletepost&postid='.$r["id"].'">Delete this post</a>';
-            echo "<br>";
-            echo "</span></div>";
-
-
+            array_push($titles, $r['title']);
+            array_push($posts, $r['post']);
+            array_push($ids, $r['id']);
+            array_push($dates, $r['date']);
            }
            
     	} else {
             
             header("Location: ?page=home");
         }
+        include('views/posts.html');
     }
 ?>

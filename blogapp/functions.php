@@ -23,9 +23,10 @@
 		if (!empty($_SESSION['username'])&&isset($_GET["postid"])) {
 
 			$id = $_GET["postid"];
+			$user_id = $_SESSION["id"];
 
 
-	    	$sql = "DELETE FROM `10162844-posts` WHERE id='$id'";
+	    	$sql = "DELETE FROM `10162844-posts` WHERE id='$id' AND user_id='$user_id'";
 	            
 	        $result = mysqli_query($connection, $sql);
 	            
