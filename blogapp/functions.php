@@ -79,7 +79,11 @@
 
 			$title = mysqli_real_escape_string ($connection, $_POST['title']);
 			$post = mysqli_real_escape_string ($connection, $_POST['post']);
-			$public = $_POST['public'];
+			if (isset($_POST['public'])){
+				$public = 1;
+			} else {
+				$public = 0;
+			}
 
 			$sql = "UPDATE `10162844-posts` SET title='$title', post='$post', public='$public' WHERE id='$id' AND user_id='$user_id'";
 		            

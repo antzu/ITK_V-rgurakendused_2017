@@ -8,5 +8,26 @@
 	</h2>
 </div>
 <div class="panel-content">
-	<p>Siin kirjeldan meie appiHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitusHea pikk postitus</p>
+	<p>On this site you can blog about anything you want. Posts can be both private and public. Public posts will be displayed here below. Private posts will display under your section when logged in.</p>
 </div>
+<div class="panel-heading">
+	<h2>Postitused</h2>
+</div>
+<?php
+		foreach ($titles as $n => $title) {
+			
+			echo "<div class='panel panel-heading'>";
+			echo "<h4>".htmlspecialchars($title)."</h4>";
+			echo "</div>";
+
+			echo "<div class='panel panel-content'>";
+			echo "<div style='word-break: break-all';>".htmlspecialchars($posts[$n])."</div>";
+			echo "</div>";
+
+			echo "<div class='panel panel-footer'>";
+			echo "<div>Posted by: "."kasutaja"."<br>".$dates[$n]."</div>";			
+            echo "</div>";
+            echo "<hr>";           
+            
+		}
+	?>
