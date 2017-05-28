@@ -20,10 +20,10 @@
                   $_SESSION['username'] = $_POST["username"];
                   $_SESSION['id'] = $id["id"];
                   
-                  $msg ='You have entered valid use name and password';
+                  $msg ='<span class="label label-success">You have entered valid use name and password</span>';
                   header('Refresh: 1; URL = ?page=login');
                }else {
-                  $msg = 'Wrong username or password';
+                  $msg = '<span class="label label-danger">Wrong username or password</span>';
                }
             }
                include('views/login.html');

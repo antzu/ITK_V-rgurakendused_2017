@@ -32,7 +32,7 @@
 	        $row = mysqli_num_rows($result);
 			$msg =
 			"<div>"
-			."deleted"
+			."<span class='label label-warning'>deleted</span>"
 			."<br>"
 			.'<a href="?page=posts">Back to posts</a>'
 			."</div>";
@@ -40,7 +40,7 @@
 		} else {
 			$msg =
 			"<div>"
-			."not deleted"
+			."<span class='label label-danger'>NOT deleted</span>"
 			."<br>"
 			.'<a href="?page=posts">Back to posts</a>'
 			."</div>";

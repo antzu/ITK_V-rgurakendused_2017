@@ -1,11 +1,15 @@
-<div>
+<div class="panel panel-heading">
 	<h2>Uus postitus</h2>
+</div>
+<div class="panel panel-content">
 	<form role = "form" action = "?page=newpost" method = "post" name="newpostform">
-	    <span class="label label-warning"><?php echo $msg; ?></span>
-	    <input type = "text" class = "form-control" name = "title" placeholder = "your post title" required>
+	    <p><?php echo $msg; ?></p>
+	    <div class="input-group">
+		    <input type = "text" class = "form-control" name = "title" placeholder = "your post title" required>
+		    <br>
+		    <textarea name = "post" placeholder = "your post here" cols="80" rows="10" required></textarea>
+		</div>
 	    <br>
-	    <textarea name = "post" placeholder = "your post here" cols="80" rows="20" required></textarea>
-	    <br>
-	    <button type = "submit" name = "newpost">Post it!</button>
+	    <button type = "submit" name = "newpost" class="btn btn-primary">Post it!</button>
 	 </form>
  </div>

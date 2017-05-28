@@ -3,13 +3,16 @@
 </div>
 <div class="panel-content">
          <form role = "form" action = "?page=signup" method = "post">
-            <span class="label label-warning"><?php echo $msg; ?></span>
-            <input type = "text" class = "form-control" 
-               name = "nusername" placeholder = "username = tutorialspoint" 
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "npassword" placeholder = "password = 1234" required>
+            <p><?php echo $msg; ?></p>
+            <div class="input-group">
+               <input type = "text" class = "form-control" 
+                  name = "nusername" placeholder = "username = tutorialspoint" 
+                  required autofocus></br>
+               <input type = "password" class = "form-control"
+                  name = "npassword" placeholder = "password = 1234" required>
+            </div>
             <button type = "submit" name = "signup" class="btn btn-primary">Sign up</button>
+            <a href="?page=login">Click here to log in</a>
          </form>
 			 
 </div>
