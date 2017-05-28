@@ -48,4 +48,57 @@
 			echo "$msg";
 		}
 	}
+
+	function changepost(){
+		global $connection;
+		if (!empty($_SESSION['username'])&&isset($_GET["postid"])) {
+			$id = $_GET["postid"];
+			$user_id = $_SESSION["id"];
+
+			$sql = "SELECT `id`, `post`, `title`, `date` FROM `10162844-posts` WHERE id='$id' AND user_id='$user_id' ";
+            
+            $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
+			$r = mysqli_fetch_assoc($result);
+
+			$title = $r['title'];
+			$post = $r['post'];
+			$public = $r['public'];
+			
+		}
+
+		include('views/changepost.html');
+	}
+
+	function savepostchange(){
+		global $connection;
+		
+		$id = $_GET['postid'];
+		$user_id = $_SESSION['id'];
+
+		if(isset($_POST['changepost'])) {
+
+			$title = mysqli_real_escape_string ($connection, $_POST['title']);
+			$post = mysqli_real_escape_string ($connection, $_POST['post']);
+			$public = $_POST['public'];
+
+			$sql = "UPDATE `10162844-posts` SET title='$title', post='$post', public='$public' WHERE id='$id' AND user_id='$user_id'";
+		            
+		    $result = mysqli_query($connection, $sql);
+
+		    if($result) {
+		    	$msg =
+					"<div>"
+					."<span class='label label-success'>Post changed successfully!</span>"
+					."<br>"
+					.'<a href="?page=posts">Back to posts</a>'
+					."</div>";
+					echo "$msg";
+	
+		    }
+		            
+
+	    	}
+
+		}
+
 ?>

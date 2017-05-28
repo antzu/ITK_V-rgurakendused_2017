@@ -1,0 +1,26 @@
+<div class="panel panel-heading">
+	<h2>Muuda postitus</h2>
+</div>
+<div class="panel panel-content">
+	<form role = "form" action = "?page=savepostchange&postid=<?php echo $id; ?>" method = "post" name="changepostform">
+	    <p><?php echo $msg; ?></p>
+	    <div class="input-group">
+		    <input type = "text" class = "form-control" name = "title" value = "<?php echo	$title; ?>" required>
+		    <br>
+		    <textarea name = "post" cols="80" rows="10" required><?php echo	$post; ?></textarea>
+		    <br>
+		    Make it public?
+		    <?php
+		    	if($public == 1) {
+		    		echo '<input type="checkbox" name="public" checked>';
+		    	} else {
+		    		echo '<input type="checkbox" name="public" >';
+		    	}
+
+		    ?>
+		    
+		</div>
+	    <br>
+	    <button type = "submit" name = "changepost" class="btn btn-primary">Change post!</button>
+	 </form>
+ </div>

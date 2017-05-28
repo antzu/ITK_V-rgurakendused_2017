@@ -18,7 +18,11 @@
 			echo "<span class='label label-warning'>";
 			echo "<a href='?page=deletepost&postid=".$ids[$n]."'>Delete this post</a>";
             echo "</span>";
-            echo "</div>";           
+            echo "<span class='label label-warning'>";
+			echo "<a href='?page=changepost&postid=".$ids[$n]."'>Edit this post</a>";
+            echo "</span>";
+            echo "</div>";
+            echo "<hr>";           
             
 		}
 	?>

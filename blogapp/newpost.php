@@ -8,10 +8,13 @@
             	$title = mysqli_real_escape_string ($connection, $_POST["title"]);
                	$post = mysqli_real_escape_string ($connection, $_POST["post"]);
                	$id = mysqli_real_escape_string ($connection, $_SESSION["id"]);
+                $public = 0;
+                if(isset($_POST['public'])) {
+                  $public = 1;
+                }
+              
 
-                
-
-               	$sql = "INSERT INTO `10162844-posts` (`id`, `post`, `user_id`, `title`) VALUES (null, '$post', '$id', '$title')";
+               	$sql = "INSERT INTO `10162844-posts` (`id`, `post`, `user_id`, `title`, `public`) VALUES (null, '$post', '$id', '$title', '$public')";
                	$result = mysqli_query($connection, $sql);
                	$success = mysqli_insert_id($connection);
 

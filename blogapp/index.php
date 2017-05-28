@@ -37,6 +37,13 @@
 		case 'deletepost';
 			deletepost();
 			break;
+		case 'changepost';
+			changepost();
+			break;
+
+		case 'savepostchange';
+			savepostchange();
+			break;
 
 		default:
 			home();
