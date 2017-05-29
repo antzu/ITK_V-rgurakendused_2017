@@ -55,7 +55,7 @@
 			$id = $_GET["postid"];
 			$user_id = $_SESSION["id"];
 
-			$sql = "SELECT `id`, `post`, `title`, `date` FROM `10162844-posts` WHERE id='$id' AND user_id='$user_id' ";
+			$sql = "SELECT `id`, `post`, `title`, `date`, `public` FROM `10162844-posts` WHERE id='$id' AND user_id='$user_id' ";
             
             $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
 			$r = mysqli_fetch_assoc($result);
