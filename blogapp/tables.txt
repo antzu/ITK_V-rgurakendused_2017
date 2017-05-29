@@ -1,3 +1,6 @@
 CREATE TABLE IF NOT EXISTS `10162844-blogapp-35b396`.`10162844-users` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR NOT NULL , `password` VARCHAR NOT NULL , `email` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `10162844-blogapp-35b396`.`10162844-posts` ( `id` INT NOT NULL AUTO_INCREMENT , `post` TEXT NOT NULL , `date` TIMESTAMP NOT NULL , `user_id` INT NOT NULL , `title` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+"SELECT `10162844-posts`.`id`, public, post ,title, `date`, user_id, `10162844-users`.`username` FROM `10162844-posts`
+INNER JOIN `10162844-users` ON `10162844-users`.`id`=`10162844-posts`.`user_id` WHERE public=1 ORDER BY `date` DESC"

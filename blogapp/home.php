@@ -3,9 +3,17 @@
 
  		global $connection;
     		
+    		# This is view of generated in database :
+    		/*
     		
-    		$sql = "SELECT id, post, title, `date`, user_id FROM `10162844-posts` WHERE public=1 ORDER BY `date` DESC ";
-    		
+    		$sql = "SELECT `10162844-posts`.`id`, public, post ,title, `date`, user_id, `10162844-users`.`username` FROM `10162844-posts`
+INNER JOIN `10162844-users` ON `10162844-users`.`id`=`10162844-posts`.`user_id` WHERE public=1 ORDER BY `date` DESC";
+
+			*/
+			
+			#This is query from view :
+
+			$sql = "SELECT * FROM `posts_username`";
             
             $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
             
@@ -22,7 +30,7 @@
 	            array_push($posts, $r['post']);
 	            #array_push($ids, $r['id']);
 	            array_push($dates, $r['date']);
-	            array_push($users, $r['user_id']);
+	            array_push($users, $r['username']);
 	            
 	            #$sqluus = "SELECT `id`, `username` FROM `10162844-users` WHERE id='$r["user_id"]' ";
 	           
