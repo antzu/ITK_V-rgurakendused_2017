@@ -4,6 +4,7 @@
 		global $connection;
 			if(!empty($_SESSION['username'])) {
             if(!empty($_POST['title']) && !empty($_POST['post'])){
+              
                	
             	$title = mysqli_real_escape_string ($connection, $_POST["title"]);
                	$post = mysqli_real_escape_string ($connection, $_POST["post"]);

@@ -7,7 +7,7 @@
 				$username = mysqli_real_escape_string ($connection, $_POST["nusername"]);
                 $password = mysqli_real_escape_string ($connection, $_POST["npassword"]);
                 
-                if(!preg_match('#(?<=<)\w+(?=[^<]*?>)#', $username)){
+                if(ctype_alnum($username)){
 	                $password = md5(md5('salt').$password);
 	                $sql = "SELECT `id` FROM `10162844-users` WHERE username='$username' ";
 	                $result = mysqli_query($connection, $sql);
@@ -28,7 +28,7 @@
 	         			$msg = '<span class="label label-danger">Username:<i> '.$username.' </i>already exists</span>';
 	         		}
 				} else {
-					$msg = '<span class="label label-danger">Do not use html chars</span>';
+					$msg = '<span class="label label-danger">Do not use html or ;.! chars</span>';
 				}
 			}
 		}
