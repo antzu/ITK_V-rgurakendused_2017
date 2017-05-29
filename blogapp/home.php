@@ -4,7 +4,7 @@
  		global $connection;
     		
     		
-    		$sql = "SELECT `id`, `post`, `title`, `date`, `user_id` FROM `10162844-posts` WHERE public=1 ";
+    		$sql = "SELECT id, post, title, `date`, user_id FROM `10162844-posts` WHERE public=1 ORDER BY `date` DESC ";
     		
             
             $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");

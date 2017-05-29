@@ -9,7 +9,7 @@
     		$user_id = $_SESSION["id"];
 
 
-    		$sql = "SELECT `id`, `post`, `title`, `date` FROM `10162844-posts` WHERE user_id='$user_id' ";
+    		$sql = "SELECT `id`, `post`, `title`, `date` FROM `10162844-posts` WHERE user_id='$user_id' ORDER BY `date` DESC ";
             
             $result = mysqli_query($connection, $sql) or die("Sellist postitust pole!!!");
             
