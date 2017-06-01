@@ -36,6 +36,13 @@
 	$ipaddress = $_SERVER['REMOTE_ADDR'];
 	$visits = 1;
 
+	#display last visit from db
+	$sql = "SELECT MAX(lastvisit) as lastvisit FROM `visitors` WHERE ipaddress = '$ipaddress' ";
+	$result = mysqli_query($connection, $sql);
+	$success = mysqli_num_rows($result);
+	$r = mysqli_fetch_assoc($result);
+	echo '<b>YOUR</b> Last visit according to db '.$r['lastvisit'].'<br>';
+
 	#updates tekst file logs
 	$tekst = $t;
 	$file = fopen("lastvisit.txt","w");
@@ -68,13 +75,19 @@
 	$r = mysqli_fetch_assoc($result);
 	echo 'Total visits according to db:<b> '.$r['totalvisits'].'</b><br><br>';
 
-
+	
 	#gets count of distinct/diefferent ip addresses from db
 	$sql = "SELECT DISTINCT COUNT(ipaddress) as address FROM `visitors`";
 	$result = mysqli_query($connection, $sql);
 	$r = mysqli_fetch_assoc($result);
 	echo 'From:<b> '.$r['address'].'</b> different addresses.<br><br>';
 
+	
+	#get sum of visits from db
+	$sql = "SELECT SUM(visits) AS totalvisits FROM `visitors` WHERE ipaddress = '$ipaddress'";
+	$result = mysqli_query($connection, $sql);
+	$r = mysqli_fetch_assoc($result);
+	echo '<b>YOUR</b> Total visits according to db:<b> '.$r['totalvisits'].'</b><br><br>';
 	#prints out all posts from db
     $sql = "SELECT * FROM `posts` ";
     $result = mysqli_query($connection, $sql);
