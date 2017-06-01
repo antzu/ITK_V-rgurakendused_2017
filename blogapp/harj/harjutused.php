@@ -2,6 +2,8 @@
 
 	require_once ('functions.php');
 	
+	
+	session_start();
 	connect_db();
 
 	#display last visit from db
@@ -26,8 +28,8 @@
 	echo "Last visit according to text file: ";
 	echo file_get_contents("lastvisit.txt")."<br>";
 
-	#starts session, gets ip and time
-	session_start();
+	
+	
 	$t = time();
 	$t = date("Y-m-d", $t);
 	echo 'Current date is '.$t . '<br>';
@@ -110,6 +112,42 @@
 	<label>Sisesta enda kommentaar:</label>
 	<input type="text" name="tekst">
 	<button type="submit">Kinnita</button>
+</form>
+<?php
+ echo "Hetkel yles laetud pildid: <br>";
+ 	$directory = "pictures/";
+	$filecount = 0;
+	$files = glob($directory . "*");
+	if ($files){
+ 		$filecount = count($files);
+	}
+	echo $filecount;
+?>
+<form method="post" action="upload.php" enctype="multipart/form-data">
+	<br>
+	<br>
+	<label>Sisesta pilt</label>
+	<input type="file" name="image">
+	<button type="submit" name="submit">Kinnita</button>
+</form>
+<br>
+<br>
+<?php
+ echo "Hetkel yles laetud failid: <br>";
+ 	$directory = "files/";
+	$filecount = 0;
+	$files = glob($directory . "*");
+	if ($files){
+ 		$filecount = count($files);
+	}
+	echo $filecount;
+?>
+<form method="post" action="upload.php" enctype="multipart/form-data">
+	<br>
+	<br>
+	<label>Sisesta fail</label>
+	<input type="file" name="file">
+	<button type="submit" name="submit">Kinnita</button>
 </form>
 </body>
 </html>
