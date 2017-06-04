@@ -31,7 +31,7 @@
 	
 	
 	$t = time();
-	$t = date("Y-m-d", $t);
+	$t = date("Y-m-d H:i", $t);
 	echo 'Current date is '.$t . '<br>';
 	$ipaddress = $_SERVER['REMOTE_ADDR'];
 	$visits = 1;
@@ -82,7 +82,7 @@
 	$r = mysqli_fetch_assoc($result);
 	echo 'From:<b> '.$r['address'].'</b> different addresses.<br><br>';
 
-	
+
 	#get sum of visits from db
 	$sql = "SELECT SUM(visits) AS totalvisits FROM `visitors` WHERE ipaddress = '$ipaddress'";
 	$result = mysqli_query($connection, $sql);
@@ -118,6 +118,10 @@
 	<title></title>
 </head>
 <body>
+<p>Laigi ja hinda lehte</p>
+<button onClick="">Like</button>
+<br>
+<br>
 <form method="post" action="">
 	<br>
 	<br>
@@ -162,6 +166,26 @@
 	<input type="file" name="file">
 	<button type="submit" name="submit">Kinnita</button>
 </form>
+<div id="kpv"></div>
+<div id="phpkpv"><?php echo time() ?></div>
+<script type="text/javascript">
+	var date = new Date();
+	var datephp = document.getElementById('phpkpv').innerHTML;
+	datephp = new Date(datephp*1000);
+	console.log(datephp);
+	console.log(date);
+	var datehrs = date.getHours();
+	var phphrs = datephp.getHours();
+	var datemin = date.getMinutes();
+	var phpmin = datephp.getMinutes();
+	if (datemin == phpmin) {
+		document.getElementById('kpv').innerHTML = 'kellaajad samad';
+	} else {
+		document.getElementById('kpv').innerHTML = datemin - phpmin;
+	}
+
+</script>
 </body>
+
 </html>
 
