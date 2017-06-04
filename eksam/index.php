@@ -3,6 +3,8 @@
 	connect_db();
 	session_start();
 
+	
+
 	if (isset($_GET['postid'])) {
 		$postid = $_GET['postid'];
 		$sql = "SELECT `post` FROM `posts` WHERE id='$postid' ";
@@ -60,7 +62,7 @@
 <body>
 	<div>
 		<h1>Märkmed</h1>
-		<form method="post">
+		<form method="post" action="">
 			<h3>Postita siia:</h3>
 			<br>
 			<textarea name = "post" placeholder = "your post here" cols="80" rows="10" required><?php echo $changablepost; ?></textarea>
